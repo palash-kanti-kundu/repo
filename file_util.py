@@ -15,19 +15,20 @@ else:
         size_in_mb = 10
 
 if len(sys.argv) >= 3:
-      capacity = int(sys.argv[2])
-else:
-      capacity = sys.maxsize
-
-if len(sys.argv) >= 4:
-      sleepTime = int(sys.argv[3])
+      sleepTime = int(sys.argv[2])
 else:
       sleepTime = 60
+
+if len(sys.argv) >= 4:
+      capacity = int(sys.argv[3])
+else:
+      capacity = sys.maxsize
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s', filename='file_util.log')
 logger = logging.getLogger()
 
 while True:
+    start = time.time()
     formatted_time = strftime("%Y_%m_%d_%H__%M__%S", gmtime())
     
     file_path = "./dummy_files/" + formatted_time + ".txt"
@@ -48,4 +49,13 @@ while True:
     logger.info("Written file at " + formatted_time)
     logger.info("")
 
-    time.sleep(sleepTime)
+    end = time.time()
+
+    elapsed = end - start
+    
+    if elapsed > sleepTime:
+          s = 0
+    else:
+          s = sleepTime - elapsed
+
+    time.sleep(s)
