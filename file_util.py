@@ -4,6 +4,8 @@ from time import strftime, gmtime
 import sys
 from collections import deque
 import logging
+import string
+import random
 
 cache = deque()
 
@@ -34,8 +36,8 @@ while True:
         os.remove(removed_item)
         logger.info("Removed" + removed_item)
 
-    with open(file_path, 'wb') as file:
-        file.write(os.urandom(size_in_mb * 1024 * 1024))
+    with open(file_path, 'w') as file:
+        file.write(''.join(random.choices(string.ascii_letters + string.digits, k=size_in_mb * 1024 * 1024)))
         cache.append(file_path)
 
     logger.info("Written file at " + formatted_time)
