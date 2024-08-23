@@ -5,8 +5,17 @@ import sys
 from collections import deque
 import logging
 
-capacity = 30
 cache = deque()
+
+if len(sys.argv) >= 2:
+        size_in_mb = int(sys.argv[1])
+else:
+        size_in_mb = 10
+
+if len(sys.argv) >= 3:
+      capacity = int(sys.argv[2])
+else:
+      capacity = sys.maxsize
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s', filename='file_util.log')
 logger = logging.getLogger()
@@ -15,11 +24,6 @@ while True:
     formatted_time = strftime("%Y_%m_%d_%H__%M__%S", gmtime())
     
     file_path = "./dummy_files/" + formatted_time
-
-    if len(sys.argv) == 2:
-        size_in_mb = int(sys.argv[1])
-    else:
-        size_in_mb = 10
 	
     if len(cache) >= capacity:
 	    removed_item = cache.popleft()
