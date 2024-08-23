@@ -25,7 +25,7 @@ logger = logging.getLogger()
 while True:
     formatted_time = strftime("%Y_%m_%d_%H__%M__%S", gmtime())
     
-    file_path = "./dummy_files/" + formatted_time
+    file_path = "./dummy_files/" + formatted_time + ".txt"
 	
     if len(cache) >= capacity:
 	    removed_item = cache.popleft()
