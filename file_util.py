@@ -1,6 +1,6 @@
 import os
 import time
-from time import strftime, gmtime
+from time import strftime, localtime
 import sys
 from collections import deque
 import logging
@@ -29,7 +29,7 @@ logger = logging.getLogger()
 
 while True:
     start = time.time()
-    formatted_time = strftime("%Y_%m_%d_%H__%M__%S", gmtime())
+    formatted_time = strftime("%Y_%m_%d-%H_%M_%S", localtime())
     
     file_path = "./dummy_files/" + formatted_time + ".txt"
 	
@@ -39,8 +39,11 @@ while True:
          removed_item = None
     
     if removed_item is  not None:
-        os.remove(removed_item)
-        logger.info("Removed" + removed_item)
+      try:
+            os.remove(removed_item)
+            logger.info("Removed" + removed_item)
+      except:
+        logger.info("Error deleting file: " + removed_item)
 
     with open(file_path, 'w') as file:
         file.write(''.join(random.choices(string.ascii_letters + string.digits, k=size_in_mb * 1024 * 1024)))
@@ -50,7 +53,6 @@ while True:
     logger.info("")
 
     end = time.time()
-
     elapsed = end - start
     
     if elapsed > sleepTime:
