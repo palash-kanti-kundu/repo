@@ -12,7 +12,7 @@ cache = deque()
 if len(sys.argv) >= 2:
         size_in_mb = int(sys.argv[1])
 else:
-        size_in_mb = 10
+        size_in_mb = 1
 
 if len(sys.argv) >= 3:
       sleepTime = int(sys.argv[2])
