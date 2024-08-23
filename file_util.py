@@ -19,6 +19,11 @@ if len(sys.argv) >= 3:
 else:
       capacity = sys.maxsize
 
+if len(sys.argv) >= 4:
+      sleepTime = int(sys.argv[3])
+else:
+      sleepTime = 60
+
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s', filename='file_util.log')
 logger = logging.getLogger()
 
@@ -43,4 +48,4 @@ while True:
     logger.info("Written file at " + formatted_time)
     logger.info("")
 
-    time.sleep(1)
+    time.sleep(sleepTime)
