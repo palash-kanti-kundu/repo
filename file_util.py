@@ -51,14 +51,13 @@ while True:
     try:  
       bash_command = "dd if=/dev/urandom of=" + file_path + " bs=1M count=" + str(size_in_mb) + ";sync"
       process = subprocess.Popen(bash_command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+      
+      # Get the output and error (if any)
+      stdout, stderr = process.communicate()
       cache.append(file_path)
+      logger.info("Written file " + file_path + " at " + formatted_time)
     except:
          logger.info()
-
-    # Get the output and error (if any)
-    stdout, stderr = process.communicate()
-
-    logger.info("Written file at " + formatted_time)
 
     end = time.time()
     elapsed = end - start
