@@ -44,7 +44,7 @@ while True:
       except:
         logger.info("Error deleting file: " + removed_item)
 
-    bash_command = "dd if=/dev/random of=" + file_path + " bs=1M count=" + size_in_mb
+    bash_command = "dd if=/dev/random of=" + file_path + " bs=1M count=" + size_in_mb + ";sync"
     process = subprocess.Popen(bash_command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
     # Get the output and error (if any)
