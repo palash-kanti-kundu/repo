@@ -31,7 +31,7 @@ while True:
     start = time.time()
     formatted_time = strftime("%Y_%m_%d-%H_%M_%S", localtime())
     
-    file_path = "./dummy_files/" + formatted_time + ".txt"
+    file_path = "./dummy_files/" + formatted_time + ".bin"
 	
     if len(cache) >= capacity:
 	    removed_item = cache.popleft()
@@ -45,8 +45,8 @@ while True:
       except:
         logger.info("Error deleting file: " + removed_item)
 
-    with open(file_path, 'w') as file:
-        file.write(''.join(random.choices(string.ascii_letters + string.digits, k=size_in_mb * 1024 * 1024)))
+    with open(file_path, 'wb') as file:
+        file.write(os.urandom(size_in_mb * 1024 * 1024))
         cache.append(file_path)
 
     logger.info("Written file at " + formatted_time)
