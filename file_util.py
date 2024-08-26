@@ -54,7 +54,7 @@ while True:
 
     end = time.time()
     elapsed = end - start
-    logger.info("Took " + elapsed + " seconds")
+    logger.info("Took " + str(elapsed) + " seconds")
     logger.info("")
     
     if elapsed > sleepTime:
