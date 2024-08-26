@@ -35,7 +35,7 @@ while True:
     formatted_time = strftime("%Y_%m_%d-%H_%M_%S", localtime())
     
     file_path = "./dummy_files/" + formatted_time + ".bin"
-	
+    logger.info("Cache size now " + str(len(cache)))	
     if len(cache) >= capacity:
 	    removed_item = cache.popleft()
     else:
