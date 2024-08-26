@@ -28,7 +28,7 @@ logger = logging.getLogger()
 
 logger.info("File Size: " + str(size_in_mb) + " MB")
 logger.info("sleepTime: " + str(sleepTime) + " Seconds")
-logger.info("capacity: " + str(size_in_mb) + " files")
+logger.info("capacity: " + str(capacity) + " files")
 
 while True:
     start = time.time()
