@@ -26,6 +26,10 @@ else:
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s', filename='file_util.log')
 logger = logging.getLogger()
 
+logger.info("File Size: " + str(size_in_mb) + " MB")
+logger.info("sleepTime: " + str(sleepTime) + " Seconds")
+logger.info("capacity: " + str(size_in_mb) + " files")
+
 while True:
     start = time.time()
     formatted_time = strftime("%Y_%m_%d-%H_%M_%S", localtime())
