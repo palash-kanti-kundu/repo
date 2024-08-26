@@ -34,7 +34,7 @@ while True:
     start = time.time()
     formatted_time = strftime("%Y_%m_%d-%H_%M_%S", localtime())
     
-    file_path = "./dummy_files/" + formatted_time + ".bin"
+    file_path = "dummy_files/" + formatted_time + ".bin"
     logger.info("Cache size now " + str(len(cache)))	
     if len(cache) >= capacity:
 	    removed_item = cache.popleft()
@@ -44,12 +44,12 @@ while True:
     if removed_item is  not None:
       try:
             os.remove(removed_item)
-            logger.info("Removed" + removed_item)
+            logger.info("Removed " + removed_item)
       except:
         logger.info("Error deleting file: " + removed_item)
 
     try:  
-      bash_command = "dd if=/dev/hwrng of=" + file_path + " bs=1M count=" + str(size_in_mb)
+      bash_command = "dd if=/dev/urandom of=" + file_path + " bs=1M count=" + str(size_in_mb)
       process = subprocess.Popen(bash_command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
       
       # Get the output and error (if any)
