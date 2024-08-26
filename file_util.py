@@ -51,10 +51,11 @@ while True:
     stdout, stderr = process.communicate()
 
     logger.info("Written file at " + formatted_time)
-    logger.info("")
 
     end = time.time()
     elapsed = end - start
+    logger.info("Took " + elapsed + " seconds")
+    logger.info("")
     
     if elapsed > sleepTime:
           s = 0
