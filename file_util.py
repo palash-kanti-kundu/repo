@@ -64,6 +64,6 @@ while True:
     if elapsed > sleepTime:
           s = 0
     else:
-          s = sleepTime - elapsed
+          s = int(sleepTime - elapsed)
 
     time.sleep(s)
