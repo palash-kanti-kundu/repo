@@ -57,7 +57,7 @@ while True:
       cache.append(file_path)
       logger.info("Written file " + file_path + " at " + formatted_time)
     except:
-         logger.info()
+         logger.info("DD is not working")
 
     end = time.time()
     elapsed = end - start
