@@ -48,8 +48,12 @@ while True:
       except:
         logger.info("Error deleting file: " + removed_item)
 
-    bash_command = "dd if=/dev/urandom of=" + file_path + " bs=1M count=" + str(size_in_mb) + ";sync"
-    process = subprocess.Popen(bash_command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    try:  
+      bash_command = "dd if=/dev/urandom of=" + file_path + " bs=1M count=" + str(size_in_mb) + ";sync"
+      process = subprocess.Popen(bash_command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+      cache.append(file_path)
+    except:
+         logger.info()
 
     # Get the output and error (if any)
     stdout, stderr = process.communicate()
