@@ -4,8 +4,7 @@ from time import strftime, localtime
 import sys
 from collections import deque
 import logging
-import string
-import random
+import subprocess
 
 cache = deque()
 
@@ -44,6 +43,12 @@ while True:
             logger.info("Removed" + removed_item)
       except:
         logger.info("Error deleting file: " + removed_item)
+
+    bash_command = "dd if=/dev/zero of=" + file_path + " bs=1M count=1024"
+    process = subprocess.Popen(bash_command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+
+    # Get the output and error (if any)
+    stdout, stderr = process.communicate()
 
     with open(file_path, 'wb') as file:
         file.write(os.urandom(size_in_mb * 1024 * 1024))
