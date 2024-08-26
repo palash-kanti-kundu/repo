@@ -50,10 +50,6 @@ while True:
     # Get the output and error (if any)
     stdout, stderr = process.communicate()
 
-    with open(file_path, 'wb') as file:
-        file.write(os.urandom(size_in_mb * 1024 * 1024))
-        cache.append(file_path)
-
     logger.info("Written file at " + formatted_time)
     logger.info("")
 
