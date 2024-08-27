@@ -96,7 +96,7 @@ while True:
       except:
         logger.info("Error deleting file: " + removed_item)
 
-    st = ''.join(np.random.choice(words, int(size_in_mb * 1024 * 1024 / 10)))
+    st = ' - '.join(np.random.choice(words, int(size_in_mb * 1024 * 1024 / 10)))
     
     with open(file_path, 'w') as file:
        file.write(st)
