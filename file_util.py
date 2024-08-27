@@ -100,6 +100,7 @@ while True:
     
     with open(file_path, 'w') as file:
        file.write(st)
+       cache.append(file_path)
 
     end = time.time()
     elapsed = end - start
