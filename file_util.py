@@ -50,7 +50,7 @@ while True:
       except:
         logger.info("Error deleting file: " + removed_item)
 
-    subprocess.call("./a.out " + file_path)
+    subprocess.call(["./a.out", file_path])
 
     end = time.time()
     elapsed = end - start
