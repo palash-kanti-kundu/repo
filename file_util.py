@@ -4,15 +4,11 @@ from time import strftime, localtime
 import sys
 from collections import deque
 import logging
-import numpy as np
 import math
+import subprocess
 
 cache = deque()
 
-
-words = np.array([
-    "business - services - products - software - research - comments - national - internet - shipping - reserved - security - american - computer - download - pictures - personal - location - children - students - shopping - previous - property - customer - december - training - advanced - category - register - november - features - industry - provided - required - articles - feedback - complete - standard - programs - language - password - question - building - february - analysis - possible - problems - interest - learning - delivery - original - includes - messages - provides - specific - director - planning - database - official - district - calendar - resource - document - material - together - function - economic - projects - included - received - archives - magazine - policies - position - listings - wireless - purchase - response - practice - hardware - designed - discount - remember - increase - european - activity - although - contents - regional - supplies - exchange - continue - benefits - anything - mortgage - solution - addition - clothing - military - decision - division - university - management - technology - government - department - categories - conditions - experience - activities - additional - washington - california - discussion - collection - conference - individual - everything - production - commercial - newsletter - registered - protection - employment - commission - electronic - particular - facilities - statistics - investment - industrial - associated - foundation - population - navigation - operations - understand - connection - properties - assessment - especially - considered - enterprise - processing - resolution - components - assistance - disclaimer - membership - background - trademarks - television - interested - throughout - associates"
-])
 
 if len(sys.argv) >= 2:
         size_in_mb = int(sys.argv[1])
@@ -54,11 +50,7 @@ while True:
       except:
         logger.info("Error deleting file: " + removed_item)
 
-    st = ' - '.join(np.random.choice(words, math.ceil(int(size_in_mb * 1024 * 1024 / 6400))))
-    
-    with open(file_path, 'w') as file:
-       file.write(st)
-       cache.append(file_path)
+    subprocess.call("./a.out " + file_path)
 
     end = time.time()
     elapsed = end - start

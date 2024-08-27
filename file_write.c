@@ -1,8 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int main() {
-    FILE *file = fopen("largefile.bin", "wb");
+int main(int argc, char *argv[]) {
+    if (argc > 1) {
+        printf("Filename: %s", argv[1]);
+    } else {
+        printf("No command-line arguments provided.\n");
+    }
+
+    FILE *file = fopen(argv[1], "wb");
     if (!file) {
         perror("Failed to open file");
         return 1;
