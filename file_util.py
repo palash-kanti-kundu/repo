@@ -40,7 +40,7 @@ while True:
     start = time.time()
     formatted_time = strftime("%Y_%m_%d-%H_%M_%S",  localtime())
     
-    file_path = dirName + formatted_time + ".txt"
+    file_path = dirName + "/" + formatted_time + ".txt"
     logger.info("Cache size now " + str(len(cache)))	
     if len(cache) >= capacity:
 	    removed_item = cache.popleft()
