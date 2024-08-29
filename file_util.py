@@ -17,6 +17,7 @@ parser.add_argument('-s', default=1024, type=int, help='File Size in MB')
 parser.add_argument('-f', default=60, type=int, help='Frequency of the script run')
 parser.add_argument('-k', default = 5, type=int, help='How many files to keep')
 parser.add_argument('-d', default = "dummy_files/", type=str, help='Directory to keep generated files')
+parser.add_argument('-l', default = "log", type=str, help='Log file name')
 
 # Parsing arguments
 args = parser.parse_args()
@@ -25,8 +26,9 @@ size_in_mb = args.s
 sleepTime = args.f
 capacity = args.k
 dirName = args.d
+logFile = args.l
 
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s', filename='file_util.log')
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s', filename=logFile)
 logger = logging.getLogger()
 
 logger.info("File Size: " + str(size_in_mb) + " MB")
