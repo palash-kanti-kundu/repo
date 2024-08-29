@@ -4,26 +4,27 @@ from time import strftime, localtime
 import sys
 from collections import deque
 import logging
-import math
+import argparse
 import subprocess
 
 cache = deque()
 
 
-if len(sys.argv) >= 2:
-        size_in_mb = int(sys.argv[1])
-else:
-        size_in_mb = 1
+parser = argparse.ArgumentParser(description="Process some command-line arguments.")
+    
+# Adding arguments
+parser.add_argument('-s', default=1024, type=int, help='File Size in MB')
+parser.add_argument('-f', default=60, type=int, help='Frequency of the script run')
+parser.add_argument('-k', default = 5, type=int, help='How many files to keep')
+parser.add_argument('-d', default = "dummy_files/", type=str, help='Directory to keep generated files')
 
-if len(sys.argv) >= 3:
-      sleepTime = int(sys.argv[2])
-else:
-      sleepTime = 60
+# Parsing arguments
+args = parser.parse_args()
 
-if len(sys.argv) >= 4:
-      capacity = int(sys.argv[3])
-else:
-      capacity = sys.maxsize
+size_in_mb = args.s
+sleepTime = args.f
+capacity = args.k
+dirName = args.d
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s', filename='file_util.log')
 logger = logging.getLogger()
@@ -31,12 +32,13 @@ logger = logging.getLogger()
 logger.info("File Size: " + str(size_in_mb) + " MB")
 logger.info("sleepTime: " + str(sleepTime) + " Seconds")
 logger.info("capacity: " + str(capacity) + " files")
+logger.info("Directory: " + str(dirName))
 
 while True:
     start = time.time()
     formatted_time = strftime("%Y_%m_%d-%H_%M_%S",  localtime())
     
-    file_path = "dummy_files/" + formatted_time + ".txt"
+    file_path = dirName + formatted_time + ".txt"
     logger.info("Cache size now " + str(len(cache)))	
     if len(cache) >= capacity:
 	    removed_item = cache.popleft()
