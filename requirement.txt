@@ -1,0 +1,26 @@
+matplotlib
+pandas
+statsmodels
+numpy
+plotly
+adtk
+scipy 
+scikit-learn
+pyarrow
+pyspark
+python:3.11
+statsforecast
+mlforecast
+neuralforecast
+hierarchicalforecast
+utilsforecast
+datasetsforecast
+coreforecast
+
+# SPARK_VERSION=3.5.0
+# HADOOP_VERSION=3
+# WORKDIR /opt/spark
+# ./apps:/opt/spark-apps
+# ./data:/opt/spark-data
+# ./write-master:/opt/spark-write
+

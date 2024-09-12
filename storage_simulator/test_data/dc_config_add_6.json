@@ -1,0 +1,89 @@
+{
+    "vms": [
+        {
+            "id": "vm1",
+            "volumes": [
+                {"id": "v1", "capacity": 100.0, "used": 100.0, "free": 0.0},
+                {"id": "v2", "capacity": 100.0, "used": 100.0, "free": 0.0},
+                {"id": "v3", "capacity": 100.0, "used": 100.0, "free": 0.0}
+            ],
+            "files": ["file0", "file1", "file2"]
+        },
+        {
+            "id": "vm2",
+            "volumes": [
+                {"id": "v4", "capacity": 100.0, "used": 100.0, "free": 0.0},
+                {"id": "v2", "capacity": 100.0, "used": 100.0, "free": 0.0},
+                {"id": "v1", "capacity": 100.0, "used": 0.0, "free": 100.0}
+            ],
+            "files": ["file5", "file6"]
+        }
+    ],
+    "volumes": [
+        {
+            "id": "v1",
+            "sp": [
+                {"id": "sp1", "capacity": 200.0, "used": 100.0, "free": 100.0},
+                {"id": "sp2", "capacity": 200.0, "used": 0.0, "free": 200.0}
+            ],
+            "files": ["file0"],
+            "capacity": 400.0,
+            "used": 100.0,
+            "free": 300.0
+        },
+        {
+            "id": "v2",
+            "sp": [
+                {"id": "sp2", "capacity": 200.0, "used": 200.0, "free": 0.0},
+                {"id": "sp3", "capacity": 200.0, "used": 0.0, "free": 200.0}
+            ],
+            "files": ["file1", "file6"],
+            "capacity": 400.0,
+            "used": 200.0,
+            "free": 200.0
+        },
+        {
+            "id": "v3",
+            "sp": [
+                {"id": "sp2", "capacity": 200.0, "used": 100.0, "free": 100.0},
+                {"id": "sp5", "capacity": 200.0, "used": 0.0, "free": 200.0}
+            ],
+            "files": ["file2"],
+            "capacity": 400.0,
+            "used": 100.0,
+            "free": 300.0
+        },
+        {
+            "id": "v4",
+            "sp": [
+                {"id": "sp4", "capacity": 200.0, "used": 100.0, "free": 100.0}
+            ],
+            "files": ["file5"],
+            "capacity": 200.0,
+            "used": 100.0,
+            "free": 100.0
+        }
+    ],
+    "storagePools": [
+        {"id": "sp1", "capacity": 500.0, "array": ["a3"], "used": 100.0, "free": 400.0, "files": ["file0"]},
+        {"id": "sp2", "capacity": 1000.0, "array": ["a1"], "used": 300.0, "free": 700.0, "files": ["file1", "file2", "file6"]},
+        {"id": "sp3", "capacity": 200.0, "array": ["a2", "a4"], "used": 0.0, "free": 200.0, "files": []},
+        {"id": "sp4", "capacity": 200.0, "array": ["a5"], "used": 100.0, "free": 100.0, "files": ["file5"]},
+        {"id": "sp5", "capacity": 500.0, "array": ["a6"], "used": 0.0, "free": 500.0, "files": []}
+    ],
+    "arrays": [
+        {"id": "a1", "capacity": 1000.0, "used": 300.0, "free": 700.0, "files": ["file1", "file2", "file6"]},
+        {"id": "a3", "capacity": 500.0, "used": 100.0, "free": 400.0, "files": ["file0"]},
+        {"id": "a2", "capacity": 100.0, "used": 0.0, "free": 100.0, "files": []},
+        {"id": "a4", "capacity": 100.0, "used": 0.0, "free": 100.0, "files": []},
+        {"id": "a5", "capacity": 200.0, "used": 100.0, "free": 100.0, "files": ["file5"]},
+        {"id": "a6", "capacity": 500.0, "used": 0.0, "free": 500.0, "files": []}
+    ],
+    "files": [
+                {"id":"file0", "size":100, "content":"Hello 0"},
+                {"id":"file1", "size":100, "content":"Hello 1"}, 
+                {"id":"file2", "size":100, "content":"Hello 2"},
+                {"id":"file5", "size":100, "content":"Hello 5"},
+                {"id":"file6", "size":100, "content":"Hello 6"}
+            ]
+}

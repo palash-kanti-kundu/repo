@@ -1,0 +1,16 @@
+{
+    "frequency": "daily",
+    "periods": 730,
+    "columns": [
+        {
+            "name": "TS_Value",
+            "value_range": [0, 2000],
+            "trend": "upwards",
+            "anomaly_percent": 10,
+            "seasonality": {
+                "length": 360,
+                "type": "sawtooth"
+            }
+        }
+    ]
+}

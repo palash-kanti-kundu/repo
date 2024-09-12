@@ -1,0 +1,106 @@
+{
+    "items": [
+      {
+        "associatedDatabases": [
+          {
+            "id": "9b4c14a6-3cd5-4907-97c4-cf44c5b641e4",
+            "name": "billing-db1",
+            "resourceUri": "/api/v1/mssql-databases/{db-id}",
+            "type": "string"
+          }
+        ],
+        "backupGranularity": "VOLUME",
+        "backupSetsInfo": [
+          {
+            "backups": [
+              {
+                "id": "d0e48314-730a-11ea-b496-48452098762c",
+                "objectCount": 0,
+                "sizeInBytes": 0,
+                "sourceCopyInfo": [
+                  {
+                    "copyType": "SNAPSHOT",
+                    "id": "d0e48314-730a-11ea-b496-48452098762c",
+                    "name": "SnapshotDB-1",
+                    "resourceUri": "string",
+                    "scsiIdentifier": "string"
+                  }
+                ],
+                "sourceVolumeInfo": {
+                  "id": "d0e48314-730a-11ea-b496-48452098762c",
+                  "name": "volume-1",
+                  "resourceUri": "string",
+                  "scsiIdentifier": "string"
+                }
+              }
+            ],
+            "sourceStorageSystemInfo": {
+              "id": "6a38acc7-e470-4ed7-b141-ca9509672dac",
+              "name": "atlas-dev-3par1.ind.hpecorp.net",
+              "resourceUri": "string",
+              "type": "PRIMERA"
+            }
+          }
+        ],
+        "backupType": "BACKUP",
+        "createdByInfo": {
+          "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+          "name": "string"
+        },
+        "customerId": "string",
+        "description": "string",
+        "expiresAt": "1970-01-01T00:00:00.000Z",
+        "generation": 0,
+        "id": "9b4c14a6-3cd5-4907-97c4-cf44c5b641e4",
+        "lockedUntil": "2020-04-03T05:03:08.900Z",
+        "logBackupInfo": {
+          "lastLogBackupTime": "2020-03-03T06:03:08.902Z",
+          "protectionStoreInfo": {
+            "id": "6a38acc7-e470-4ed7-b141-ca9509672dac",
+            "name": "string",
+            "resourceUri": "string",
+            "type": "ON_PREMISES"
+          },
+          "storageSystemInfo": {
+            "displayName": "atlas-dev-psg1.ind.hpecorp.net",
+            "id": "6a38acc7-e470-4ed7-b141-ca9509672dac",
+            "resourceUri": "string",
+            "type": "PROTECTION_STORE_GATEWAY"
+          }
+        },
+        "name": "Nimble-DB1-snap",
+        "pointInTime": "2020-03-03T05:03:08.902Z",
+        "protectionStoreInfo": {
+          "id": "6a38acc7-e470-4ed7-b141-ca9509672dac",
+          "name": "string",
+          "resourceUri": "string",
+          "type": "ON_PREMISES"
+        },
+        "resourceUri": "/api/v1/mssql-databases/{db-id}/backups/{backup-id}",
+        "scheduleInfo": {
+          "id": 0,
+          "name": "Hourly snapshot schedule",
+          "recurrence": "BY_MINUTES"
+        },
+        "sourceCopyInfo": {
+          "id": "d0e48314-730a-11ea-b496-48452098762c",
+          "resourceUri": "string",
+          "type": "SNAPSHOT"
+        },
+        "state": "OK",
+        "stateReason": "string",
+        "status": "OK",
+        "storageSystemInfo": {
+          "displayName": "atlas-dev-psg1.ind.hpecorp.net",
+          "id": "6a38acc7-e470-4ed7-b141-ca9509672dac",
+          "resourceUri": "string",
+          "type": "PROTECTION_STORE_GATEWAY"
+        },
+        "type": "string",
+        "updatedAt": "1970-01-01T00:00:00.000Z"
+      }
+    ],
+    "pageLimit": 0,
+    "pageOffset": 0,
+    "total": 0
+  }
